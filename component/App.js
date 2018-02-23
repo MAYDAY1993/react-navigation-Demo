@@ -24,7 +24,10 @@ const HomeScreen = React.createClass({
         <Text>Home</Text>
         <Button
           title="to detail"
-          onPress={() => this.props.navigation.navigate('Detail')} 
+          onPress={() => this.props.navigation.navigate('Detail',{
+            itemId: 555,
+            otherParam:'hello mayday'
+          })} 
         />
       </View>
     );
@@ -33,9 +36,15 @@ const HomeScreen = React.createClass({
 
 const DetailScreen = React.createClass({
   render(){
+    const { params } = this.props.navigation.state;
+    const itemId = params ? params.itemId : null;
+    const otherParam = params ? params.otherParam : null;
+  
     return(
       <View style={{flex:1,alignItems: 'center', justifyContent:'center'}}>
         <Text>detail</Text>
+        <Text>itemId: {JSON.stringify(itemId)}</Text>
+        <Text>otherParam:{JSON.stringify(otherParam)}</Text>
         <Button
           title="to detail again"
           onPress={() => this.props.navigation.navigate('Detail')} 
