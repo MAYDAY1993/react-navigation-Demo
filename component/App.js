@@ -22,6 +22,10 @@ const HomeScreen = React.createClass({
     return(
       <View style={{flex:1,alignItems: 'center', justifyContent:'center'}} >
         <Text>Home</Text>
+        <Button
+          title="to detail"
+          onPress={() => this.props.navigation.navigate('Detail')} 
+        />
       </View>
     );
   }
@@ -32,6 +36,13 @@ const DetailScreen = React.createClass({
     return(
       <View style={{flex:1,alignItems: 'center', justifyContent:'center'}}>
         <Text>detail</Text>
+        <Button
+          title="to detail again"
+          onPress={() => this.props.navigation.navigate('Detail')} 
+        />
+        <Button
+          title="back"
+          onPress={() => this.props.navigation.goBack()} />
       </View>
     );
   }
